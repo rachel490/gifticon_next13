@@ -15,22 +15,22 @@
     "plugin:jsx-a11y/recommended",
     "plugin:import/recommended",
     "plugin:prettier/recommended",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
-  "plugins": [
-    "react",
-    "react-hooks",
-    "@typescript-eslint",
-    "jsx-a11y",
-    "import"
-  ],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "jsx-a11y", "import"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json",
     "createDefaultProgram": true
   },
   "rules": {
-    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ],
     "react/react-in-jsx-scope": 0,
     "react/jsx-props-no-spreading": 0,
     "react/function-component-definition": [
@@ -55,7 +55,12 @@
     "@typescript-eslint/no-floating-promises": 0,
     "react/require-default-props": 0,
     "react/button-has-type": 0,
-    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    "react/no-unknown-property": [
+      "error",
+      {
+        "ignore": ["css", "jsx"]
+      }
+    ],
     "react/jsx-no-useless-fragment": 0
   },
   "settings": {
