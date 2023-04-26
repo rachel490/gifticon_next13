@@ -1,5 +1,6 @@
 import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyleProvider from "@/components/Providers/GlobalStyleProvider";
+import ReactQueryProvider from "@/components/Providers/ReactQueryProvider";
 import appleSDGothicNeo from "@/styles/font";
 
 export const metadata = {
@@ -12,7 +13,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={appleSDGothicNeo.variable}>
       <body>
         <StyledComponentsRegistry>
-          <GlobalStyleProvider>{children}</GlobalStyleProvider>
+          <ReactQueryProvider>
+            <GlobalStyleProvider>{children}</GlobalStyleProvider>
+          </ReactQueryProvider>
         </StyledComponentsRegistry>
       </body>
     </html>
