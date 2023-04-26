@@ -10,16 +10,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-size: 1.4rem;
     line-height: 120%;
+    font-family: var(--font-appleSDGothicNeo),sans-serif;
   }
-
+  
   html {
     font-size: 62.5%;
-  }
-
-  body {
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
-      Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   }
 
   button {
@@ -42,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
   }
-  
+
   input {
     border: none;
     outline: none;
