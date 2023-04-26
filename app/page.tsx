@@ -1,3 +1,10 @@
+import { Button } from "@/components/Button/Button";
+
 export default function Home() {
-  return <main>Welcome to Gifti Service App</main>;
+  return (
+    <main>
+      <h1> Welcome to Gifti Service App</h1>
+      <Button />
+    </main>
+  );
 }
