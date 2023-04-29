@@ -1,5 +1,6 @@
 import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyleProvider from "@/components/Providers/GlobalStyleProvider";
+import ReduxToolkitProvider from "@/components/Providers/ReduxToolkitProvider";
 import ReactQueryProvider from "@/components/Providers/ReactQueryProvider";
 import appleSDGothicNeo from "@/styles/font";
 
@@ -12,11 +13,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={appleSDGothicNeo.variable}>
       <body>
-        <StyledComponentsRegistry>
-          <ReactQueryProvider>
-            <GlobalStyleProvider>{children}</GlobalStyleProvider>
-          </ReactQueryProvider>
-        </StyledComponentsRegistry>
+        <ReduxToolkitProvider>
+          <StyledComponentsRegistry>
+            <ReactQueryProvider>
+              <GlobalStyleProvider>{children}</GlobalStyleProvider>
+            </ReactQueryProvider>
+          </StyledComponentsRegistry>
+        </ReduxToolkitProvider>
       </body>
     </html>
   );
