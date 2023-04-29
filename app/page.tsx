@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button/Button";
+import Count from "@/components/Count/Count";
 import Posts from "@/components/Posts/Posts";
 import Todos from "@/components/Todos/Server/Todos";
 import TanstackTodos from "@/components/Todos/Tanstack/TanstackTodos";
@@ -19,6 +20,7 @@ export default async function Home() {
       <Todos />
       {/* @ts-expect-error Async Server Component */}
       <TanstackTodos />
+      <Count />
     </main>
   );
 }
