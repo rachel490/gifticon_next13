@@ -1,5 +1,6 @@
 import { Button } from "@/components/Button/Button";
 import Posts from "@/components/Posts/Posts";
+import Todos from "@/components/Todos/Todos";
 import Users from "@/components/Users/Users";
 import { getPosts } from "@/hooks/queries/posts";
 
@@ -13,6 +14,8 @@ export default async function Home() {
       <Posts posts={posts} />
       {/* @ts-expect-error Async Server Component */}
       <Users />
+      {/* @ts-expect-error Async Server Component */}
+      <Todos />
     </main>
   );
 }
