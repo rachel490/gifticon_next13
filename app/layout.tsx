@@ -2,6 +2,7 @@ import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyleProvider from "@/components/Providers/GlobalStyleProvider";
 import ReduxToolkitProvider from "@/components/Providers/ReduxToolkitProvider";
 import ReactQueryProvider from "@/components/Providers/ReactQueryProvider";
+import MobileLayout from "@/components/Layout/MobileLayout/MobileLayout";
 import appleSDGothicNeo from "@/styles/font";
 
 export const metadata = {
@@ -16,7 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ReduxToolkitProvider>
           <StyledComponentsRegistry>
             <ReactQueryProvider>
-              <GlobalStyleProvider>{children}</GlobalStyleProvider>
+              <GlobalStyleProvider>
+                <MobileLayout>{children}</MobileLayout>
+              </GlobalStyleProvider>
             </ReactQueryProvider>
           </StyledComponentsRegistry>
         </ReduxToolkitProvider>
