@@ -1,7 +1,9 @@
 import StyledComponentsRegistry from "@/lib/registry";
-import GlobalStyleProvider from "@/components/Providers/GlobalStyleProvider";
-import ReduxToolkitProvider from "@/components/Providers/ReduxToolkitProvider";
-import ReactQueryProvider from "@/components/Providers/ReactQueryProvider";
+import {
+  GlobalStyleProvider,
+  ReactQueryProvider,
+  ReduxToolkitProvider,
+} from "@/components/Providers";
 import MobileLayout from "@/components/Layout/MobileLayout/MobileLayout";
 import appleSDGothicNeo from "@/styles/font";
 
