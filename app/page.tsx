@@ -5,6 +5,7 @@ import Todos from "@/components/Todos/Server/Todos";
 import TanstackTodos from "@/components/Todos/Tanstack/TanstackTodos";
 import Users from "@/components/Users/Users";
 import { getPosts } from "@/hooks/queries/posts";
+import { FaBeer } from "react-icons/fa";
 
 export default async function Home() {
   const posts = await getPosts();
@@ -21,6 +22,7 @@ export default async function Home() {
       {/* @ts-expect-error Async Server Component */}
       <TanstackTodos />
       <Count />
+      <FaBeer />
     </main>
   );
 }
