@@ -17,12 +17,13 @@ declare module "styled-components" {
     14: string;
     15: string;
     16: string;
+    [key: number]: string;
   }
 
   export interface FontWeight {
     regular: number;
     medium: number;
-    bold: number;
+    semiBold: number;
   }
 
   export interface DefaultTheme {

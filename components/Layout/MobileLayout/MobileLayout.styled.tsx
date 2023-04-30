@@ -12,7 +12,7 @@ export const ContentWrap = styled.div`
   padding: 1rem 0;
 `;
 
-export const Content = styled.div`
+export const Content = styled.main`
   max-width: 37.5rem;
   width: 100%;
   min-height: 100vh;

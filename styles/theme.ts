@@ -22,7 +22,7 @@ const fontSize: FontSize = {
 const fontWeight: FontWeight = {
   regular: 400,
   medium: 500,
-  bold: 600,
+  semiBold: 600,
 };
 
 const theme: DefaultTheme = {

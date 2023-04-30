@@ -17,6 +17,10 @@ const GlobalStyle = createGlobalStyle`
     font-size: 62.5%;
   }
 
+  body {
+    font-family: var(--font-appleSDGothicNeo),sans-serif;
+  }
+
   button {
     border: none;
     background-color: transparent;
