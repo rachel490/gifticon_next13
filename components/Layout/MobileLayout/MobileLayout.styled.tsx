@@ -17,5 +17,5 @@ export const Content = styled.main`
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.color.neutral100};
 `;

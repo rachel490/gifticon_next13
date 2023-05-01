@@ -10,7 +10,6 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
         <Navbar />
         {children}
       </S.Content>
-      ;
     </S.ContentWrap>
   );
 }
