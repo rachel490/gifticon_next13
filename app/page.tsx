@@ -1,5 +1,11 @@
+import Grid from "@/components/Grid/Grid";
+
 function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <Grid />
+    </div>
+  );
 }
 
 export default HomePage;
