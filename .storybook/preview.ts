@@ -16,6 +16,9 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    backgrounds: {
+      values: [{ name: "dark", value: "#202020" }],
+    },
   },
 };
 
