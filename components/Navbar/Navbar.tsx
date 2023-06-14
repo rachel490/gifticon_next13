@@ -5,21 +5,21 @@ import { CloseIcon, HamburgerIcon, PrevIcon } from "../Icons";
 import Text from "../Text/Text";
 import * as S from "./Navbar.styled";
 
-const nav = {
+const NAV_INFO = {
   [BASE_ROUTES.HOME]: {
     left: <HamburgerIcon />,
     title: "니콘내콘",
   },
-  [BASE_ROUTES.CATEGORY]: {
-    left: <PrevIcon />,
-    title: "categoryName",
-  },
   [BASE_ROUTES.BRAND]: {
     left: <PrevIcon />,
-    title: "brandName",
+    // title : 카테고리명 동적으로 렌더
   },
-  [BASE_ROUTES.MENU]: {
+  [BASE_ROUTES.ITEMLIST]: {
     left: <PrevIcon />,
+    // title : 브랜드명 동적으로 렌더
+  },
+  [BASE_ROUTES.ITEMDETAILS]: {
+    // nothing...
   },
   [BASE_ROUTES.FAQ]: {
     right: <CloseIcon />,
@@ -29,8 +29,11 @@ const nav = {
 
 function Navbar() {
   const pathname = usePathname();
+
   const [currentPage, currentLeaf] = checkPage(pathname);
-  const currentNav = nav[`/${currentPage}`];
+  const currentNav = NAV_INFO[`/${currentPage}`];
+
+  // TODO: title currentLeaf => 데이터 fetching해서 가져오는 것으로 추후 변경.
 
   return (
     <S.NavContainer>
