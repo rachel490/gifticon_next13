@@ -10,21 +10,24 @@ export const NavContainer = styled.nav`
   justify-content: space-between;
 `;
 
-export const NavBox = styled.button`
+const navItemBasicStyle = `
   display: flex;
   align-items: center;
   min-width: 30px;
   height: 100%;
 `;
 
-export const NavLeft = styled(NavBox)`
+export const NavLeft = styled.button`
+  ${navItemBasicStyle};
   justify-content: flex-start;
 `;
 
-export const NavTitle = styled(NavBox)`
+export const NavTitle = styled.div`
+  ${navItemBasicStyle};
   justify-content: center;
 `;
 
-export const NavRight = styled(NavBox)`
+export const NavRight = styled.button`
+  ${navItemBasicStyle};
   justify-content: flex-end;
 `;
