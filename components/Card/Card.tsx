@@ -6,44 +6,21 @@ import { IConItem, IConItemDetail, ILastSaleItem } from "@/types/api";
 import { Text, Price, DiscountRate } from "../Text";
 import * as S from "./Card.styled";
 
-export interface ICardTypes {
-  [key: string]: {
-    imageSize: "m" | "l";
-    hasBrandTitle: boolean;
-  };
-}
-
-const types: ICardTypes = {
-  menuListItem: {
-    imageSize: "m",
-    hasBrandTitle: false,
-  },
-  lastSaleItem: {
-    imageSize: "m",
-    hasBrandTitle: true,
-  },
-  menuDetailItem: {
-    imageSize: "l",
-    hasBrandTitle: true,
-  },
-};
-
-interface IProps {
-  type: "menuListItem" | "lastSaleItem" | "menuDetailItem";
-  data: IConItemDetail | ILastSaleItem | IConItem;
-}
+type IProps =
+  | { type: "menuListItem"; data: IConItem }
+  | { type: "lastSaleItem"; data: ILastSaleItem }
+  | { type: "menuDetailItem"; data: IConItemDetail };
 
 function Card({ type, data }: IProps) {
   const { color } = useTheme();
-  const { imageSize, hasBrandTitle } = types[type];
 
   return (
-    <S.CardContainer size={type === "menuListItem" ? "m" : "l"}>
-      <S.ImageWrap size={imageSize}>
+    <S.CardContainer type={type}>
+      <S.ImageWrap>
         <Image src={data.imageUrl} alt={data.name} fill />
       </S.ImageWrap>
-      <S.Info size={type === "menuListItem" ? "m" : "l"}>
-        {hasBrandTitle && "conCategory2" in data && (
+      <S.Info>
+        {type !== "menuListItem" && (
           <Text className="brand" weight="regular" color={color.neutral500}>
             {data.conCategory2.name}
           </Text>

@@ -1,17 +1,44 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const CardContainer = styled.div<{ size: "m" | "l" }>`
+const cardTypeStyle = {
+  menuListItem: {
+    padding: "1.3rem",
+    imageSize: "7.4rem",
+  },
+  lastSaleItem: {
+    padding: "1.7rem",
+    imageSize: "7.4rem",
+  },
+  menuDetailItem: {
+    padding: "1.7rem",
+    imageSize: "9rem",
+  },
+};
+
+export const CardContainer = styled.div<{
+  type: "menuListItem" | "lastSaleItem" | "menuDetailItem";
+}>`
   width: 100%;
   padding-inline: 1.7rem;
-  padding-block: ${({ size }) => (size === "m" ? "1.3rem" : "1.7rem")};
   display: flex;
   column-gap: 1.7rem;
   background-color: ${({ theme }) => theme.color.neutral0};
   margin-bottom: 0.1rem;
+
+  ${({ type }) => css`
+    padding-block: ${cardTypeStyle[type].padding};
+
+    ${ImageWrap} {
+      max-width: ${cardTypeStyle[type].imageSize};
+    }
+
+    ${Info} {
+      max-width: calc(100% - 1.7rem - ${cardTypeStyle[type].imageSize});
+    }
+  `}
 `;
 
-export const ImageWrap = styled.div<{ size: "m" | "l" }>`
-  max-width: ${({ size }) => (size === "m" ? "7.4rem" : "9rem")};
+export const ImageWrap = styled.div`
   aspect-ratio: 1/1;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -19,9 +46,8 @@ export const ImageWrap = styled.div<{ size: "m" | "l" }>`
   width: 100%;
 `;
 
-export const Info = styled.div<{ size: "m" | "l" }>`
+export const Info = styled.div`
   display: flex;
-  max-width: ${({ size }) => `calc(100% - 3.4rem - (${size === "m" ? "7.4rem" : "9rem"}))`};
   flex-direction: column;
   justify-content: center;
 
