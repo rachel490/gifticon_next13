@@ -19,7 +19,7 @@ const NAV_INFO = {
     // title : 브랜드명 동적으로 렌더
   },
   [BASE_ROUTES.ITEMDETAILS]: {
-    // nothing...
+    title: " ",
   },
   [BASE_ROUTES.FAQ]: {
     right: <CloseIcon />,
