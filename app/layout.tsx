@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={appleSDGothicNeo.variable}>
+    <html lang="en" className={appleSDGothicNeo.className}>
       <body>
         <ReduxToolkitProvider>
           <StyledComponentsRegistry>
