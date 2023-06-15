@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react";
+import { Preview } from "@storybook/react";
 import { withThemeFromJSXProvider } from "@storybook/addon-styling";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/global";
@@ -18,6 +18,7 @@ const preview: Preview = {
     },
     backgrounds: {
       values: [{ name: "dark", value: "#202020" }],
+      default: "dark",
     },
   },
 };
