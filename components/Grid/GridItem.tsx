@@ -25,7 +25,7 @@ function GridItem({ data, type }: IProps) {
   const { name, imageUrl } = data;
 
   return (
-    <S.Container>
+    <S.Container type={type}>
       <S.ImageWrap>
         <Image src={imageUrl} alt={name} fill />
       </S.ImageWrap>
