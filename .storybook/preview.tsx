@@ -1,5 +1,5 @@
+import React from "react";
 import { Preview } from "@storybook/react";
-import { withThemeFromJSXProvider } from "@storybook/addon-styling";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/global";
 import theme from "../styles/theme";
@@ -21,18 +21,16 @@ const preview: Preview = {
       default: "dark",
     },
   },
+  decorators: [
+    Story => (
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <div style={{ maxWidth: "480px" }}>
+          <Story />
+        </div>
+      </ThemeProvider>
+    ),
+  ],
 };
 
 export default preview;
-
-export const decorators = [
-  withThemeFromJSXProvider({
-    GlobalStyles: GlobalStyle,
-    Provider: ThemeProvider,
-    themes: {
-      light: theme,
-      dark: theme,
-    },
-    defaultTheme: "light",
-  }),
-];
