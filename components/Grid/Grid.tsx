@@ -1,14 +1,26 @@
 "use client";
 
-import { brandMockData, categoryMockData } from "./Grid.mock";
+import { ICategory, IBrand } from "@/types/api";
 import GridItem from "./GridItem";
 import * as S from "./Grid.styled";
 
-function Grid() {
+interface ICategoryListData {
+  data: ICategory[];
+  type: "category";
+}
+
+interface IBrandListData {
+  data: IBrand[];
+  type: "brand";
+}
+
+type IProps = ICategoryListData | IBrandListData;
+
+function Grid({ data, type }: IProps) {
   return (
     <S.GridContainer>
-      {categoryMockData.map(itemData => (
-        <GridItem key={itemData.id} data={itemData} />
+      {data.map(itemData => (
+        <GridItem key={itemData.id} data={itemData} type={type} />
       ))}
     </S.GridContainer>
   );
