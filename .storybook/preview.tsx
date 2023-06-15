@@ -1,5 +1,6 @@
 import React from "react";
 import { Preview } from "@storybook/react";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/global";
 import theme from "../styles/theme";
@@ -20,6 +21,11 @@ const preview: Preview = {
       values: [{ name: "dark", value: "#202020" }],
       default: "dark",
     },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: "iphone12mini",
+    },
+    layout: "fullscreen",
   },
   decorators: [
     Story => (
