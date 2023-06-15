@@ -10,15 +10,16 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-size: 1.4rem;
     line-height: 120%;
-    font-family: var(--font-appleSDGothicNeo),sans-serif;
+    font-family: AppleSDGothicNeo,sans-serif;
   }
   
   html {
     font-size: 62.5%;
+    font-family: AppleSDGothicNeo,sans-serif;
   }
 
   body {
-    font-family: var(--font-appleSDGothicNeo),sans-serif;
+    font-family: AppleSDGothicNeo,sans-serif;
   }
 
   button {

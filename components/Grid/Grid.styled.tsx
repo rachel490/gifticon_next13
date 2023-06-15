@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const gridItemTypeStyle = {
+  category: {
+    iconSize: "4.3rem",
+    rowGap: "1.4rem",
+  },
+  brand: {
+    iconSize: "3.6rem",
+    rowGap: "1.5rem",
+  },
+};
 
 export const GridContainer = styled.div`
   width: 100%;
@@ -8,7 +19,7 @@ export const GridContainer = styled.div`
   grid-gap: 0.2rem;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ type: "category" | "brand" }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,12 +29,18 @@ export const Container = styled.div`
   aspect-ratio: 1/1;
   border-radius: 0.5rem;
   overflow: hidden;
-  row-gap: 1.4rem;
+
+  ${({ type }) => css`
+    row-gap: ${gridItemTypeStyle[type].rowGap};
+
+    ${ImageWrap} {
+      max-width: ${gridItemTypeStyle[type].iconSize};
+    }
+  `}
 `;
 
 export const ImageWrap = styled.div`
   position: relative;
-  max-width: 4.3rem;
   width: 100%;
   aspect-ratio: 1/1;
 `;

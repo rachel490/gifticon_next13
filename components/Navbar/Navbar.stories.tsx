@@ -4,12 +4,6 @@ import Navbar from "./Navbar";
 const meta: Meta<typeof Navbar> = {
   title: "Navbar",
   component: Navbar,
-  argTypes: {},
-  parameters: {
-    backgrounds: {
-      default: "dark",
-    },
-  },
 };
 
 export default meta;

@@ -18,7 +18,6 @@ const appleSDGothicNeo = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-appleSDGothicNeo",
 });
 
 export default appleSDGothicNeo;

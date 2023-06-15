@@ -5,11 +5,6 @@ import Card from "./Card";
 const meta: Meta<typeof Card> = {
   title: "Card",
   component: Card,
-  parameters: {
-    backgrounds: {
-      default: "dark",
-    },
-  },
   argTypes: {
     type: {
       control: false,
