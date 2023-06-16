@@ -1,5 +1,13 @@
+"use client";
+
+import Tab from "@/components/Tab/Tab";
+
 function BrandPage() {
-  return <div>BrandPage</div>;
+  return (
+    <div>
+      <Tab type="category" />
+    </div>
+  );
 }
 
 export default BrandPage;
