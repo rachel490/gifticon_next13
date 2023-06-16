@@ -1,5 +1,13 @@
+"use client";
+
+import Tab from "@/components/Tab/Tab";
+
 function FAQPage() {
-  return <div>FAQPage</div>;
+  return (
+    <div>
+      <Tab type="faq" />
+    </div>
+  );
 }
 
 export default FAQPage;
