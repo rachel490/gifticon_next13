@@ -1,21 +1,32 @@
 "use client";
 
-import CardList from "@/components/Card/CardList";
+import Card from "@/components/Card/Card";
 import Grid from "@/components/Grid/Grid";
-import { brandMockData } from "@/components/Grid/Grid.mock";
-import { useGetCategoryList } from "@/hooks/queries/gifti";
+import { useGetCategoryList, useGetLastSaleItemList } from "@/hooks/queries/gifti";
 
 function HomePage() {
-  const { data: categoryListData, isLoading, isError } = useGetCategoryList();
+  const {
+    data: categoryListData,
+    isLoading: isLoadingCategoryListData,
+    isError: isErrorCategoryListData,
+  } = useGetCategoryList();
+  const {
+    data: lastSaleItemListData,
+    isLoading: isLoadingLastSaleItemListData,
+    isError: isErrorLastSaleItemListData,
+  } = useGetLastSaleItemList();
 
-  if (isLoading) return <h1>Loading...</h1>;
-  if (isError) return <h1>Error...</h1>;
+  if (isLoadingCategoryListData || isLoadingLastSaleItemListData) return <h1>Loading...</h1>;
+  if (isErrorCategoryListData || isErrorLastSaleItemListData) return <h1>Error...</h1>;
 
   return (
     <div>
       <Grid data={categoryListData.conCategory1s} type="category" />
-      <Grid data={brandMockData} type="brand" />
-      <CardList />
+      <div>
+        {lastSaleItemListData.conItems.map(item => (
+          <Card type="lastSaleItem" key={item.id} data={item} />
+        ))}
+      </div>
     </div>
   );
 }
