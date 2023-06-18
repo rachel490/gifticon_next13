@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ICategory, IBrand } from "@/types/api";
 import GridItem from "./GridItem";
 import * as S from "./Grid.styled";
@@ -20,7 +21,9 @@ function Grid({ data, type }: IProps) {
   return (
     <S.GridContainer>
       {data.map(itemData => (
-        <GridItem key={itemData.id} data={itemData} type={type} />
+        <Link href={`/categories/${itemData.id}`} key={itemData.id}>
+          <GridItem data={itemData} type={type} />
+        </Link>
       ))}
     </S.GridContainer>
   );

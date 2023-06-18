@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import styled, { useTheme } from "styled-components";
 import { useGetCategoryList, useGetLastSaleItemList } from "@/hooks/queries/gifti";
 import { Text } from "@/components/Text";
@@ -39,7 +40,9 @@ function HomePage() {
         </TextContainer>
         <CardList>
           {lastSaleItemListData.conItems.map(item => (
-            <Card type="lastSaleItem" key={item.id} data={item} />
+            <Link href={`/items/${item.id}`} key={item.id}>
+              <Card type="lastSaleItem" data={item} />
+            </Link>
           ))}
         </CardList>
       </Section>
