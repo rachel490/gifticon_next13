@@ -5,6 +5,7 @@ import { useGetCategoryList, useGetLastSaleItemList } from "@/hooks/queries/gift
 import { Text } from "@/components/Text";
 import Card from "@/components/Card/Card";
 import Grid from "@/components/Grid/Grid";
+import Banner from "@/components/Banner/Banner";
 
 function HomePage() {
   const { color } = useTheme();
@@ -25,6 +26,7 @@ function HomePage() {
 
   return (
     <div>
+      <Banner />
       <Grid data={categoryListData.conCategory1s} type="category" />
       <Section>
         <TextContainer>
