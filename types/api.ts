@@ -27,6 +27,24 @@ export interface IBrand {
   conItems: IConItem[];
 }
 
+export interface IOption {
+  expireAt: string;
+  count: number;
+  sellingPrice: number;
+}
+
+export interface IFAQCategory {
+  id: number;
+  key: string;
+  name: string;
+}
+
+export interface IFAQItem {
+  id: number;
+  question: string;
+  answer: string;
+}
+
 export interface IBrandDetail extends Omit<IBrand, "conItems"> {
   adminUserId: number;
   priority: number;
@@ -53,7 +71,7 @@ export interface IConItemDetail extends IConItem {
   conCategory2: IBrandDetail & {
     conCategory1: ICategoryDetail;
   };
-  options: [];
+  options: IOption[];
 }
 
 export interface ILastSaleItem extends Omit<IConItemDetail, "descriptionImages" | "options"> {
@@ -64,4 +82,34 @@ export interface ILastSaleItem extends Omit<IConItemDetail, "descriptionImages" 
   isRefuse: 0 | 1;
   isBlock: 0 | 1;
   isBarcode: boolean;
+}
+
+// RESPONSE
+export interface ICategoryListResponse {
+  conCategory1s: ICategory[];
+}
+
+export interface ILastSaleItemResponse {
+  conItems: ILastSaleItem[];
+}
+
+export interface IBrandAndItemListResponse {
+  conCategory1: ICategory & {
+    conCategory2s: IBrand &
+      {
+        conItems: IConItem[];
+      }[];
+  };
+}
+
+export interface IItemDetailsResponse {
+  conItem: IConItemDetail;
+}
+
+export interface IFAQCategoryListResponse {
+  qaTypes: IFAQCategory[];
+}
+
+export interface IFAQListResponse {
+  qas: IFAQItem[];
 }
