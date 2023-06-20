@@ -19,9 +19,9 @@ function BrandPage() {
   if (isLoading) return <h1>Loading...</h1>;
   if (isError) return <h1>Error...</h1>;
 
-  const brandId = searchParams.get("conCate2");
+  const brandName = searchParams.get("conCate2");
   const currentBrandMenuList = brandAndItemListData.conCategory1.conCategory2s.filter(
-    brand => brand.id === Number(brandId),
+    brand => brand.name === brandName,
   )[0].conItems;
 
   return (

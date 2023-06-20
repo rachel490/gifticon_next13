@@ -37,7 +37,7 @@ const generateLink = (type: IProps["type"], itemData: ICategory | IBrandAndItems
 
   return {
     pathname: `${LINK_BASE_URL[type]}/${(itemData as IBrandAndItems).conCategory1Id}`,
-    query: { conCate2: itemData.id },
+    query: { conCate2: itemData.name },
   };
 };
 
