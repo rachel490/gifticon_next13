@@ -22,11 +22,16 @@ interface IProps {
   type: "category" | "brand";
 }
 
+const LINK_BASE_URL = {
+  brand: "/brands",
+  category: "categories",
+};
+
 function Grid({ data, type }: IProps) {
   return (
     <S.GridContainer>
       {data.map(itemData => (
-        <Link href={`/categories/${itemData.id}`} key={itemData.id}>
+        <Link href={`${LINK_BASE_URL[type]}/${itemData.id}`} key={itemData.id}>
           <GridItem data={itemData} type={type} />
         </Link>
       ))}
