@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 import { useGetBrandAndItemList } from "@/hooks/queries/gifti";
 import BrandHeader from "@/components/BrandHeader/BrandHeader";
@@ -28,7 +29,9 @@ function BrandPage() {
       <BrandHeader count={currentBrandMenuList.length} />
       <div>
         {currentBrandMenuList.map(menuItem => (
-          <Card type="menuListItem" data={menuItem} key={menuItem.id} />
+          <Link href={`/items/${menuItem.id}`} key={menuItem.id}>
+            <Card type="menuListItem" data={menuItem} />
+          </Link>
         ))}
       </div>
     </>
