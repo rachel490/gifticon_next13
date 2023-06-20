@@ -27,6 +27,10 @@ export interface IBrand {
   conItems: IConItem[];
 }
 
+export interface IBrandAndItems extends IBrand {
+  conItems: IConItem[];
+}
+
 export interface IOption {
   expireAt: string;
   count: number;
@@ -95,10 +99,7 @@ export interface ILastSaleItemResponse {
 
 export interface IBrandAndItemListResponse {
   conCategory1: ICategory & {
-    conCategory2s: IBrand &
-      {
-        conItems: IConItem[];
-      }[];
+    conCategory2s: IBrandAndItems[];
   };
 }
 
