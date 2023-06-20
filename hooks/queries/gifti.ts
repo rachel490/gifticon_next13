@@ -3,12 +3,14 @@ import { useQuery } from "@tanstack/react-query";
 import {
   getBrandAndItemList,
   getCategoryList,
+  getFAQCategoryList,
   getItemDetails,
   getLastSaleItemList,
 } from "@/api/fetchers";
 import {
   IBrandAndItemListResponse,
   ICategoryListResponse,
+  IFAQCategoryListResponse,
   IItemDetailsResponse,
   ILastSaleItemResponse,
 } from "@/types/api";
@@ -43,5 +45,12 @@ export const useGetItemDetails = (itemId: number) => {
   return useQuery<IItemDetailsResponse, AxiosError, IItemDetailsResponse, [string, number]>({
     queryKey: ["item details", itemId],
     queryFn: () => getItemDetails(itemId),
+  });
+};
+
+export const useGetFAQCategoryList = () => {
+  return useQuery<IFAQCategoryListResponse, AxiosError, IFAQCategoryListResponse, [string]>({
+    queryKey: ["faq category list"],
+    queryFn: () => getFAQCategoryList(),
   });
 };
