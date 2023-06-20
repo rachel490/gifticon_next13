@@ -1,21 +1,32 @@
 "use client";
 
+import { useParams } from "next/navigation";
+import { useGetBrandAndItemList, useGetCategoryList } from "@/hooks/queries/gifti";
+import Grid from "@/components/Grid/Grid";
 import Tab from "@/components/Tab/Tab";
-import { useGetCategoryList } from "@/hooks/queries/gifti";
 
 function CategoryPage() {
+  const params = useParams();
+
   const {
     data: categoryListData,
     isLoading: isLoadingCategoryListData,
     isError: isErrorCategoryListData,
   } = useGetCategoryList();
 
-  if (isLoadingCategoryListData) return <h1>Loading...</h1>;
-  if (isErrorCategoryListData) return <h1>Error...</h1>;
+  const {
+    data: brandAndItemListData,
+    isLoading: isLoadingBrandAndItemListData,
+    isError: isErrorBrandAndItemListData,
+  } = useGetBrandAndItemList(Number(params?.categoryId));
+
+  if (isLoadingCategoryListData || isLoadingBrandAndItemListData) return <h1>Loading...</h1>;
+  if (isErrorCategoryListData || isErrorBrandAndItemListData) return <h1>Error...</h1>;
 
   return (
     <div>
       <Tab type="category" data={categoryListData.conCategory1s} />
+      <Grid data={brandAndItemListData.conCategory1.conCategory2s} type="brand" />
     </div>
   );
 }
