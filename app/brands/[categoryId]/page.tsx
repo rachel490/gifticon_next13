@@ -6,7 +6,7 @@ import { useGetBrandAndItemList } from "@/hooks/queries/gifti";
 import BrandHeader from "@/components/BrandHeader/BrandHeader";
 import Card from "@/components/Card/Card";
 
-function BrandPage() {
+function ItemListPage() {
   const params = useParams();
   const searchParams = useSearchParams();
 
@@ -38,4 +38,4 @@ function BrandPage() {
   );
 }
 
-export default BrandPage;
+export default ItemListPage;

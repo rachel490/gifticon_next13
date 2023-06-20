@@ -5,7 +5,7 @@ import { useGetBrandAndItemList, useGetCategoryList } from "@/hooks/queries/gift
 import Grid from "@/components/Grid/Grid";
 import Tab from "@/components/Tab/Tab";
 
-function CategoryPage() {
+function BrandListPage() {
   const params = useParams();
 
   const {
@@ -31,4 +31,4 @@ function CategoryPage() {
   );
 }
 
-export default CategoryPage;
+export default BrandListPage;

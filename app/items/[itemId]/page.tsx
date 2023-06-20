@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { useGetItemDetails } from "@/hooks/queries/gifti";
 import Card from "@/components/Card/Card";
 
-function MenuPage() {
+function ItemDetailsPage() {
   const params = useParams();
 
   const { data: itemDetailsData, isLoading, isError } = useGetItemDetails(Number(params.itemId));
@@ -19,4 +19,4 @@ function MenuPage() {
   );
 }
 
-export default MenuPage;
+export default ItemDetailsPage;
