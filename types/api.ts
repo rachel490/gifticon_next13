@@ -31,6 +31,15 @@ export interface IBrandAndItems extends IBrand {
   conItems: IConItem[];
 }
 
+export interface IDescriptionImage {
+  url: string;
+  priority: number;
+  conItemDescriptionImageCode: {
+    key: string;
+    name: string;
+  };
+}
+
 export interface IOption {
   expireAt: string;
   count: number;
@@ -70,7 +79,7 @@ export interface IConItemDetail extends IConItem {
   bottomDescriptionImageUrl: null | string;
   tutorialImageUrl: null | string;
   shortcutUrl: null | string;
-  descriptionImages: string[];
+  descriptionImages: IDescriptionImage[];
   savingRatio: number;
   conCategory2: IBrandDetail & {
     conCategory1: ICategoryDetail;
