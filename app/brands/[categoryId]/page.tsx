@@ -24,14 +24,14 @@ function BrandPage() {
   )[0].conItems;
 
   return (
-    <div>
+    <>
       <BrandHeader count={currentBrandMenuList.length} />
       <div>
         {currentBrandMenuList.map(menuItem => (
           <Card type="menuListItem" data={menuItem} key={menuItem.id} />
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

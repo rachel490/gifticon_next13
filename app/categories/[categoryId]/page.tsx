@@ -24,10 +24,10 @@ function CategoryPage() {
   if (isErrorCategoryListData || isErrorBrandAndItemListData) return <h1>Error...</h1>;
 
   return (
-    <div>
+    <>
       <Tab type="category" data={categoryListData.conCategory1s} />
       <Grid data={brandAndItemListData.conCategory1.conCategory2s} type="brand" />
-    </div>
+    </>
   );
 }
 
