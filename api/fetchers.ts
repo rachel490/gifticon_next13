@@ -1,6 +1,7 @@
 import {
   IBrandAndItemListResponse,
   ICategoryListResponse,
+  IItemDetailsResponse,
   ILastSaleItemResponse,
 } from "@/types/api";
 import ncncAxios from "./core";
@@ -20,5 +21,10 @@ export const getBrandAndItemList = async (categoryId: number) => {
   const { data } = await ncncAxios.get<IBrandAndItemListResponse>(
     API_URI.brandAndItemList(categoryId),
   );
+  return data;
+};
+
+export const getItemDetails = async (itemId: number) => {
+  const { data } = await ncncAxios.get<IItemDetailsResponse>(API_URI.ItemDetails(itemId));
   return data;
 };
