@@ -2,6 +2,7 @@ import {
   IBrandAndItemListResponse,
   ICategoryListResponse,
   IFAQCategoryListResponse,
+  IFAQListResponse,
   IItemDetailsResponse,
   ILastSaleItemResponse,
 } from "@/types/api";
@@ -32,5 +33,10 @@ export const getItemDetails = async (itemId: number) => {
 
 export const getFAQCategoryList = async () => {
   const { data } = await ncncAxios.get<IFAQCategoryListResponse>(API_URI.FAQCategoryList);
+  return data;
+};
+
+export const getFAQList = async (categoryId: number) => {
+  const { data } = await ncncAxios.get<IFAQListResponse>(API_URI.FAQList(categoryId));
   return data;
 };

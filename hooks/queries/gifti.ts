@@ -4,6 +4,7 @@ import {
   getBrandAndItemList,
   getCategoryList,
   getFAQCategoryList,
+  getFAQList,
   getItemDetails,
   getLastSaleItemList,
 } from "@/api/fetchers";
@@ -11,6 +12,7 @@ import {
   IBrandAndItemListResponse,
   ICategoryListResponse,
   IFAQCategoryListResponse,
+  IFAQListResponse,
   IItemDetailsResponse,
   ILastSaleItemResponse,
 } from "@/types/api";
@@ -52,5 +54,12 @@ export const useGetFAQCategoryList = () => {
   return useQuery<IFAQCategoryListResponse, AxiosError, IFAQCategoryListResponse, [string]>({
     queryKey: ["faq category list"],
     queryFn: () => getFAQCategoryList(),
+  });
+};
+
+export const useGetFAQList = (categoryId: number) => {
+  return useQuery<IFAQListResponse, AxiosError, IFAQListResponse, [string, number]>({
+    queryKey: ["faq list", categoryId],
+    queryFn: () => getFAQList(categoryId),
   });
 };
