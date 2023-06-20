@@ -2,6 +2,7 @@
 
 import { useParams, useSearchParams } from "next/navigation";
 import { useGetBrandAndItemList } from "@/hooks/queries/gifti";
+import BrandHeader from "@/components/BrandHeader/BrandHeader";
 import Card from "@/components/Card/Card";
 
 function BrandPage() {
@@ -24,6 +25,7 @@ function BrandPage() {
 
   return (
     <div>
+      <BrandHeader count={currentBrandMenuList.length} />
       <div>
         {currentBrandMenuList.map(menuItem => (
           <Card type="menuListItem" data={menuItem} key={menuItem.id} />
