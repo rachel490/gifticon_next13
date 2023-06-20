@@ -38,7 +38,10 @@ function Tab({ type, data }: IProps) {
         {data.map(item => (
           <S.MenuItem key={item.id} className={currentMenu === item.name ? "isSelected" : ""}>
             {type === "category" ? (
-              <Link href={`/categories/${item.id}`} aria-label={`${item.name} 카테고리로 이동`}>
+              <Link
+                href={{ pathname: `/categories/${item.id}`, query: { cateName: item.name } }}
+                aria-label={`${item.name} 카테고리로 이동`}
+              >
                 <Text>{item.name}</Text>
               </Link>
             ) : (
