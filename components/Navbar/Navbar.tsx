@@ -1,4 +1,4 @@
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { BASE_ROUTES } from "@/constants/routes";
 import { checkPage } from "@/utils/checkPage";
 import { CloseIcon, HamburgerIcon, PrevIcon } from "../Icons";
@@ -19,6 +19,7 @@ const NAV_INFO = {
     // title : 브랜드명 동적으로 렌더
   },
   [BASE_ROUTES.ITEMDETAILS]: {
+    left: <PrevIcon />,
     title: " ",
   },
   [BASE_ROUTES.FAQ]: {
@@ -29,18 +30,25 @@ const NAV_INFO = {
 
 function Navbar() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const [currentPage, currentLeaf] = checkPage(pathname);
   const currentNav = NAV_INFO[`/${currentPage}`];
 
-  // TODO: title currentLeaf => 데이터 fetching해서 가져오는 것으로 추후 변경.
+  let navTitle = currentNav.title;
+
+  if (searchParams.get("cateName")) {
+    navTitle = searchParams.get("cateName") as string;
+  } else if (searchParams.get("conCate2")) {
+    navTitle = searchParams.get("conCate2") as string;
+  }
 
   return (
     <S.NavContainer>
       <S.NavLeft>{currentNav.left}</S.NavLeft>
       <S.NavTitle>
         <Text as="h3" size={15}>
-          {currentNav.title ? currentNav.title : currentLeaf}
+          {navTitle}
         </Text>
       </S.NavTitle>
       <S.NavRight>{currentNav.right}</S.NavRight>

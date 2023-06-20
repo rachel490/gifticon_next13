@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import * as S from "./Text.styled";
 
 interface IProps {
@@ -5,7 +6,7 @@ interface IProps {
   color?: string;
   weight?: "regular" | "medium" | "semiBold";
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
-  children: string;
+  children: ReactNode;
   className?: string;
 }
 

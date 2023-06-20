@@ -1,64 +1,56 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import Link from "next/link";
+import { useParams } from "next/navigation";
+import { ICategory, IFAQCategory } from "@/types/api";
 import { Text } from "../Text";
 import * as S from "./Tab.styled";
 
-const TAB_MENU = {
-  category: [
-    "땡처리콘",
-    "카페",
-    "편의점·마트",
-    "디저트",
-    "패스트푸드",
-    "문화·게임·영화",
-    "외식·분식",
-    "백화점·주유·뷰티",
-    "휴대폰 데이터",
-  ],
-  faq: ["구매", "판매"],
-};
-
 export interface IProps {
   type: "category" | "faq";
+  data: ICategory[] | IFAQCategory[];
 }
 
-function Tab({ type }: IProps) {
+function Tab({ type, data }: IProps) {
   const param = useParams();
 
   const [currentMenu, setCurrentMenu] = useState("");
 
   useEffect(() => {
-    if (param.brandId) {
-      const decodedParam = decodeURI(param.brandId);
-      setCurrentMenu(decodedParam);
+    if (param.categoryId) {
+      const currentCategory = (data as ICategory[]).filter(
+        category => category.id === Number(param.categoryId),
+      )[0];
+      setCurrentMenu(currentCategory.name);
     } else {
-      setCurrentMenu(TAB_MENU[type][0]);
+      setCurrentMenu(data[0].name);
     }
   }, []);
 
-  const handleClick = (menuItem: string) => {
-    setCurrentMenu(menuItem);
+  const handleClick = (menuName: string) => {
+    setCurrentMenu(menuName);
   };
 
   return (
     <S.Wrap type={type}>
       <S.MenuList>
-        {TAB_MENU[type].map(item => (
-          <S.MenuItem key={item} className={currentMenu === item ? "isSelected" : ""}>
+        {data.map(item => (
+          <S.MenuItem key={item.id} className={currentMenu === item.name ? "isSelected" : ""}>
             {type === "category" ? (
-              <Link href={`/brands/${item}`} aria-label={`${item} 카테고리로 이동`}>
-                <Text>{item}</Text>
+              <Link
+                href={{ pathname: `/categories/${item.id}`, query: { cateName: item.name } }}
+                aria-label={`${item.name} 카테고리로 이동`}
+              >
+                <Text>{item.name}</Text>
               </Link>
             ) : (
               <button
                 type="button"
-                aria-label={`${item} 탭으로 이동`}
-                onClick={() => handleClick(item)}
+                aria-label={`${item.name} 탭으로 이동`}
+                onClick={() => handleClick(item.name)}
               >
-                <Text color="inherit">{item}</Text>
+                <Text color="inherit">{item.name}</Text>
               </button>
             )}
           </S.MenuItem>
