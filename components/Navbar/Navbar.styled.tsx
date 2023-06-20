@@ -8,6 +8,7 @@ export const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 0.1rem;
 `;
 
 const navItemBasicStyle = `
