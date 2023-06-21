@@ -18,7 +18,10 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      values: [{ name: "dark", value: "#202020" }],
+      values: [
+        { name: "dark", value: "#202020" },
+        { name: "light", value: "#fff" },
+      ],
       default: "dark",
     },
     viewport: {
