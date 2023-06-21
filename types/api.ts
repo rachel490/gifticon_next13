@@ -42,8 +42,9 @@ export interface IDescriptionImage {
 
 export interface IOption {
   expireAt: string;
-  count: number;
-  sellingPrice: number;
+  count: string;
+  sellingPrice: string;
+  isSoonConItemOption: string;
 }
 
 export interface IFAQCategory {
