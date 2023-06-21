@@ -1,11 +1,19 @@
-"use client";
+import { ReactNode } from "react";
+import * as S from "./Button.styled";
 
-import { StyledButton } from "./button.styled";
+interface IProps {
+  type: "submit" | "button" | "reset";
+  children: ReactNode;
+  onClick: () => void;
+  disabled: boolean;
+}
 
-const handleClick = () => {
-  console.log("clicked");
-};
+function Button({ type, children, onClick, disabled }: IProps) {
+  return (
+    <S.Button type={type} onClick={onClick} disabled={disabled}>
+      {children}
+    </S.Button>
+  );
+}
 
-export const Button = () => {
-  return <StyledButton onClick={handleClick}>heww</StyledButton>;
-};
+export default Button;

@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useGetItemDetails } from "@/hooks/queries/gifti";
 import Card from "@/components/Card/Card";
+import DropUpBox from "@/components/DropUpBox/DropUpBox";
 
 function ItemDetailsPage() {
   const params = useParams();
@@ -15,6 +16,7 @@ function ItemDetailsPage() {
   return (
     <div>
       <Card type="menuDetailItem" data={itemDetailsData.conItem} />
+      <DropUpBox data={itemDetailsData.conItem.options} />
     </div>
   );
 }
