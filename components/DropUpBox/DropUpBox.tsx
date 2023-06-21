@@ -7,28 +7,11 @@ import Button from "../Button/Button";
 import { Text } from "../Text";
 import * as S from "./DropUpBox.styled";
 
-const mockOptions = [
-  {
-    count: "925",
-    expireAt: "2023-08-01T00:00:00+09:00",
-    sellingPrice: "3860",
-    isSoonConItemOption: "false",
-  },
-  {
-    count: "34",
-    expireAt: "2023-08-02T00:00:00+09:00",
-    sellingPrice: "3860",
-    isSoonConItemOption: "false",
-  },
-  {
-    count: "319",
-    expireAt: "2023-08-04T00:00:00+09:00",
-    sellingPrice: "3860",
-    isSoonConItemOption: "false",
-  },
-];
+interface IProps {
+  data: IOption[];
+}
 
-function DropUpBox() {
+function DropUpBox({ data }: IProps) {
   const [optionModalOpen, setOptionModalOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<IOption | null>(null);
 
@@ -55,7 +38,7 @@ function DropUpBox() {
         <S.Title>
           <Text>옵션 선택하기</Text>
         </S.Title>
-        {mockOptions.map(option => (
+        {data.map(option => (
           <SelectOption
             key={option.count}
             data={option}

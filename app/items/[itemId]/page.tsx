@@ -16,7 +16,7 @@ function ItemDetailsPage() {
   return (
     <div>
       <Card type="menuDetailItem" data={itemDetailsData.conItem} />
-      <DropUpBox />
+      <DropUpBox data={itemDetailsData.conItem.options} />
     </div>
   );
 }
