@@ -34,19 +34,21 @@ function DropUpBox({ data }: IProps) {
 
   return (
     <S.Container>
-      <S.OptionList optionModalOpen={optionModalOpen}>
+      <S.OptionListContainer optionModalOpen={optionModalOpen}>
         <S.Title>
           <Text>옵션 선택하기</Text>
         </S.Title>
-        {data.map(option => (
-          <SelectOption
-            key={option.count}
-            data={option}
-            discountRate={14}
-            onClick={() => handleOptionSelect(option)}
-          />
-        ))}
-      </S.OptionList>
+        <S.OptionList>
+          {data.map(option => (
+            <SelectOption
+              key={option.count}
+              data={option}
+              discountRate={14}
+              onClick={() => handleOptionSelect(option)}
+            />
+          ))}
+        </S.OptionList>
+      </S.OptionListContainer>
       {selectedOption && !optionModalOpen && (
         <S.CurrentOptionWrap>
           <S.CurrentOption onClick={toggleOptionModalOpen}>

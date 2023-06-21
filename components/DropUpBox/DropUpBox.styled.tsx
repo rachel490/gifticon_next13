@@ -7,7 +7,7 @@ export const Container = styled.div`
   left: 0;
 `;
 
-export const OptionList = styled.div<{ optionModalOpen: boolean }>`
+export const OptionListContainer = styled.div<{ optionModalOpen: boolean }>`
   background-color: ${({ theme }) => theme.color.neutral0};
   display: ${({ optionModalOpen }) => (optionModalOpen ? "block" : "none")};
 `;
@@ -18,6 +18,20 @@ export const Title = styled.div`
   display: flex;
   align-items: center;
   padding-inline: 1.7rem;
+`;
+
+export const OptionList = styled.div`
+  max-height: 20rem;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 `;
 
 export const CurrentOptionWrap = styled.div`
