@@ -6,7 +6,7 @@
 
 👉 [서비스 바로가기](https://week3-1-eight.vercel.app/)
 
-👉 [스토리북 바로가기](https://week3-1-eight.vercel.app/)
+👉 [스토리북 바로가기](https://6494249c7002643bec784e45-qajprgphez.chromatic.com/)
 
 <br />
 
