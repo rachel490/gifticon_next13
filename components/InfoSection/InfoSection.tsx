@@ -15,7 +15,8 @@ interface IProps {
 function InfoSection({ descriptionImages, noticeInfos }: IProps) {
   const { color } = useTheme();
 
-  const tabMenuArray = descriptionImages ? ["상품설명", "유의사항"] : ["유의사항"];
+  const tabMenuArray = descriptionImages?.length ? ["상품설명", "유의사항"] : ["유의사항"];
+
   const [currentTab, setCurrentTab] = useState(tabMenuArray[0]);
 
   return (
@@ -27,7 +28,7 @@ function InfoSection({ descriptionImages, noticeInfos }: IProps) {
             className={currentTab === menuName ? "isSelected" : ""}
             onClick={() => setCurrentTab(menuName)}
           >
-            상품설명
+            {menuName}
           </button>
         ))}
       </S.ButtonWrap>

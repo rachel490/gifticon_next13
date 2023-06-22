@@ -25,10 +25,9 @@ export const ButtonWrap = styled.div`
 `;
 
 export const NoticeInfoContainer = styled.div`
-  /* height: 100%; */
   background-color: ${({ theme }) => theme.color.neutral0};
-  /* overflow-y: scroll; */
   padding: 1.7rem;
+  padding-bottom: 8rem;
 
   &::-webkit-scrollbar {
     display: none;

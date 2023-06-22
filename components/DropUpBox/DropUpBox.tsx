@@ -41,7 +41,7 @@ function DropUpBox({ data }: IProps) {
         <S.OptionList>
           {data.map(option => (
             <SelectOption
-              key={option.count}
+              key={option.count + option.sellingPrice}
               data={option}
               discountRate={14}
               onClick={() => handleOptionSelect(option)}
