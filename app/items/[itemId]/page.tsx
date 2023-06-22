@@ -5,6 +5,7 @@
 import { useParams } from "next/navigation";
 import { useGetItemDetails } from "@/hooks/queries/gifti";
 import Card from "@/components/Card/Card";
+import InfoSection from "@/components/InfoSection/InfoSection";
 import DropUpBox from "@/components/DropUpBox/DropUpBox";
 import { IConItemDetail } from "@/types/api";
 
@@ -44,13 +45,15 @@ function ItemDetailsPage() {
   if (isLoading) return <h1>Loading...</h1>;
   if (isError) return <h1>Error...</h1>;
 
-  const noticeInfo = generateNoticeInfoObject(itemDetailsData.conItem);
-
-  console.log("notice info", noticeInfo);
+  const infoObject = generateNoticeInfoObject(itemDetailsData.conItem);
 
   return (
     <>
       <Card type="menuDetailItem" data={itemDetailsData.conItem} />
+      <InfoSection
+        descriptionImages={itemDetailsData.conItem.descriptionImages}
+        noticeInfos={infoObject}
+      />
       <DropUpBox data={itemDetailsData.conItem.options} />
     </>
   );
