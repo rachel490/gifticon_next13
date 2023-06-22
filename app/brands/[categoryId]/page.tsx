@@ -21,13 +21,14 @@ function ItemListPage() {
     isError,
   } = useGetBrandAndItemList(Number(params?.categoryId));
 
+  const selectedBrand = brandAndItemListData?.conCategory1.conCategory2s.filter(brand => {
+    return brand.name === brandName;
+  });
+
   useEffect(() => {
-    if (!brandAndItemListData) return;
-    const brandMenus = brandAndItemListData?.conCategory1.conCategory2s.filter(
-      brand => brand.name === brandName,
-    )[0].conItems;
-    setCurrentBrandMenuList(brandMenus);
-  }, [brandAndItemListData, brandName]);
+    if (!selectedBrand) return;
+    setCurrentBrandMenuList(selectedBrand[0].conItems);
+  }, [selectedBrand]);
 
   if (isLoading) return <h1>Loading...</h1>;
   if (isError) return <h1>Error...</h1>;
